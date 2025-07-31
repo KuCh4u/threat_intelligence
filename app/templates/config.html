@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Configuración de Threat Intel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>🛠️ Panel de Configuración</h1>
+
+    <h2>➕ Agregar nueva fuente RSS</h2>
+    <form method="POST">
+        <input type="text" name="feed_name" placeholder="Nombre de la fuente" required>
+        <input type="url" name="feed_url" placeholder="URL del RSS" required>
+        <button type="submit">Agregar</button>
+    </form>
+
+    <h2>➕ Agregar palabra clave</h2>
+    <form method="POST">
+        <input type="text" name="keyword" placeholder="Palabra clave (ej: ransomware)" required>
+        <button type="submit">Agregar</button>
+    </form>
+
+    <h2>📋 Feeds registrados</h2>
+    <ul>
+        {% for feed in feeds %}
+            <li><strong>{{ feed.name }}</strong>: {{ feed.url }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>📋 Palabras clave registradas</h2>
+    <ul>
+        {% for kw in keywords %}
+            <li>{{ kw.word }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
