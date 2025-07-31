@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>📄 Logs del Scraper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .log-box {
+            background-color: #1a1a1a;
+            border-left: 4px solid #33ff33;
+            padding: 1rem;
+            margin-top: 1rem;
+            max-height: 70vh;
+            overflow-y: scroll;
+            white-space: pre-wrap;
+            font-family: "Courier New", monospace;
+            font-size: 14px;
+            color: #33ff33;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #33ff33;
+            color: #0d0d0d;
+            font-weight: bold;
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        a.button:hover {
+            background-color: #00cc00;
+        }
+    </style>
+</head>
+<body>
+    <h1>📄 Registros del Scraper</h1>
+    <a href="/config" class="button">← Volver a Configuración</a>
+
+    <div class="log-box">
+{% for line in log %}
+{{ line.strip() }}
+{% endfor %}
+    </div>
+</body>
+</html>

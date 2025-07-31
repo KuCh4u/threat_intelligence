@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>🧠 Threat Intelligence Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>🧠 Threat Intelligence Dashboard</h1>
+
+    {% if news %}
+        {% for item in news %}
+            <div class="card">
+                <h2>{{ item.title }}</h2>
+                <p><strong>{{ item.source }}</strong> | <a href="{{ item.link }}" target="_blank" style="color: #33ff33;">Ver noticia</a></p>
+                <p>{{ item.summary|safe }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No hay noticias aún. Agrega palabras clave y fuentes en <a href="/config" style="color: #33ff33;">/config</a></p>
+    {% endif %}
+</body>
+</html>

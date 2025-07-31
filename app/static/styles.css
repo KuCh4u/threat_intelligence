@@ -43,3 +43,10 @@ ul {
     border-left: 4px solid #33ff33;
     list-style-type: square;
 }
+
+.card {
+    background-color: #1a1a1a;
+    border-left: 4px solid #33ff33;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
